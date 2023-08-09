@@ -6,8 +6,8 @@
     <title>Portfolio - Adrián Durán Molero</title>
   </head>
   <body>
-    <div class="bg-white">
-      <header class="absolute inset-x-0 top-0 z-50">
+    <header>
+      <div class="absolute inset-x-0 top-0 z-50">
         <nav
           class="flex items-center justify-between p-6 lg:px-8"
           aria-label="Global"
@@ -15,8 +15,8 @@
           <div class="flex lg:flex-1">
             <a href="#" class="-m-1.5 p-1.5">
               <img
-                class="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                class="h-12 w-auto"
+                src="../../public/images/profile-pic-pixelart.png"
                 alt="Logo Adrián Durán Molero"
               />
             </a>
@@ -30,7 +30,10 @@
             >
           </div>
           <div class="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-6">
-            <a href="https://www.linkedin.com/in/adrian-duran-molero" class="-m-1.5 p-1.5">
+            <a
+              href="https://www.linkedin.com/in/adrian-duran-molero"
+              class="-m-1.5 p-1.5"
+            >
               <img
                 class="h-8 w-auto"
                 src="../../public/images/linkedin-icon.svg"
@@ -47,7 +50,7 @@
           </div>
         </nav>
         <!-- Mobile menu, show/hide based on menu open state. -->
-        <div class="lg:hidden" role="dialog" aria-modal="true">
+        <div class="lg:hidden" role="dialog" aria-modal="true" id="mobile-menu">
           <!-- Background backdrop, show/hide based on slide-over state. -->
           <div class="fixed inset-0 z-50"></div>
           <div
@@ -55,18 +58,17 @@
           >
             <div class="flex items-center justify-between">
               <a href="#" class="-m-1.5 p-1.5">
-                <span class="sr-only">Your Company</span>
                 <img
-                  class="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                  class="h-12 w-auto"
+                  src="../../public/images/profile-pic-pixelart.png"
                   alt=""
                 />
               </a>
               <button
                 type="button"
-                class="-m-2.5 rounded-md p-2.5 text-gray-700"
+                class="-m-2.5 rounded-md p-2.5 text-gray-600 hover:text-black"
+                id="close-button"
               >
-                <span class="sr-only">Close menu</span>
                 <svg
                   class="h-6 w-6"
                   fill="none"
@@ -88,75 +90,85 @@
                   <a
                     href="#"
                     class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                    >Projects</a
+                    >Knowledge</a
                   >
                   <a
                     href="#"
                     class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                    >Features</a
+                    >Projects</a
                   >
                 </div>
                 <div class="py-6">
                   <a
-                    href="#"
-                    class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                    >Log in</a
+                    href="https://www.linkedin.com/in/adrian-duran-molero"
+                    class="-m-1.5 p-1.5"
                   >
+                    <img
+                      class="h-8 w-auto"
+                      src="../../public/images/linkedin-icon.svg"
+                      alt="Logo Linkedin"
+                    />
+                  </a>
+                  <a href="https://github.com/Adriiduran" class="-m-1.5 p-1.5">
+                    <img
+                      class="h-8 w-auto"
+                      src="../../public/images/github-icon.svg"
+                      alt="Logo Github"
+                    />
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </header>
+      </div>
 
       <div class="relative isolate px-6 pt-14 lg:px-8">
-        <div
-          class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-          aria-hidden="true"
-        >
-          <div
-            class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-            style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
-          >
-          </div>
-        </div>
         <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-          <div class="text-center">
+          <div class="flex flex-col items-center text-center">
+            <img
+              src="../../public/images/profile-pic-pixelart.png"
+              alt="Profile pic"
+              class="h-64 w-64"
+            />
             <h1
-              class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
+              class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl mt-6"
             >
               Full Stack and iOS Developer
             </h1>
-            <p class="mt-6 text-lg leading-8 text-gray-600">
-              Passionate developer driven by code and creativity
+            <p class="mt-6 text-lg text-gray-600">
+              "Passionate developer driven by code and creativity"
             </p>
-            <div class="mt-10 flex items-center justify-center gap-x-6">
-              <a
-                href="#"
-                class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                >Get started</a
-              >
-              <a href="#" class="text-sm font-semibold leading-6 text-gray-900"
-                >Learn more <span aria-hidden="true">→</span></a
-              >
-            </div>
-          </div>
-        </div>
-        <div
-          class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-          aria-hidden="true"
-        >
-          <div
-            class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-            style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
-          >
+            <a
+              href=""
+              class="my-6 px-6 py-3 bg-blue-500 rounded-md display: block text-white"
+              >RESUME</a
+            >
           </div>
         </div>
       </div>
-    </div>
+    </header>
 
     <main></main>
 
     <footer></footer>
   </body>
+  <script>
+    // Obtenemos referencias a los elementos del DOM
+    var mobileMenu = document.getElementById("mobile-menu");
+    var closeButton = document.getElementById("close-button");
+
+    // Agregamos un manejador de eventos al botón
+    closeButton.addEventListener("click", function () {
+      // Obtenemos el valor actual del atributo aria-modal
+      var currentAriaModal = mobileMenu.getAttribute("aria-modal");
+
+      // Cambiamos el valor del atributo aria-modal
+      if (currentAriaModal === "true") {
+        mobileMenu.setAttribute("aria-modal", "false");
+      } else {
+        mobileMenu.setAttribute("aria-modal", "true");
+      }
+    });
+  </script>
 </html>

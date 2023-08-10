@@ -7,7 +7,7 @@
   </head>
   <body>
     <header>
-      <div class="absolute inset-x-0 top-0 z-50">
+      <section class="absolute inset-x-0 top-0 z-50">
         <nav
           class="flex items-center justify-between p-6 lg:px-8"
           aria-label="Global"
@@ -29,30 +29,42 @@
               >Projects</a
             >
           </div>
-          <div class="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-6">
+          <div class="lg:flex lg:flex-1 lg:justify-end lg:gap-x-6">
             <a
               href="https://www.linkedin.com/in/adrian-duran-molero"
-              class="-m-1.5 p-1.5"
+              class="-m-1.5 p-1.5 hidden lg:block"
             >
               <img
-                class="h-8 w-auto"
+                class="h-8 w-auto hidden lg:block"
                 src="../../public/images/linkedin-icon.svg"
                 alt="Logo Linkedin"
               />
             </a>
             <a href="https://github.com/Adriiduran" class="-m-1.5 p-1.5">
               <img
-                class="h-8 w-auto"
+                class="h-8 w-auto hidden lg:block"
                 src="../../public/images/github-icon.svg"
                 alt="Logo Github"
               />
             </a>
+
+            <button type="button" class="-m-1.5 p-1.5" id="burger-menu">
+              <img
+                class="h-8 w-auto lg:hidden"
+                src="../../public/images/burger-menu-icon.svg"
+                alt="Burguer menu icon"
+              />
+            </button>
           </div>
         </nav>
-        <!-- Mobile menu, show/hide based on menu open state. -->
-        <div class="lg:hidden" role="dialog" aria-modal="true" id="mobile-menu">
-          <!-- Background backdrop, show/hide based on slide-over state. -->
-          <div class="fixed inset-0 z-50"></div>
+
+        <nav
+          class="hidden lg:hidden"
+          role="dialog"
+          aria-modal="true"
+          id="mobile-menu"
+        >
+          <!-- <div class="fixed inset-0 z-50"></div> -->
           <div
             class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
           >
@@ -120,11 +132,11 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </nav>
+      </section>
 
-      <div class="relative isolate px-6 pt-14 lg:px-8">
-        <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+      <section>
+        <div class="py-32 sm:py-48 lg:py-56">
           <div class="flex flex-col items-center text-center">
             <img
               src="../../public/images/profile-pic-pixelart.png"
@@ -134,7 +146,7 @@
             <h1
               class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl mt-6"
             >
-              Full Stack and iOS Developer
+              Full Stack & iOS Developer
             </h1>
             <p class="mt-6 text-lg text-gray-600">
               "Passionate developer driven by code and creativity"
@@ -142,33 +154,36 @@
             <a
               href=""
               class="my-6 px-6 py-3 bg-blue-500 rounded-md display: block text-white"
-              >RESUME</a
+              >Download Resume</a
             >
           </div>
         </div>
-      </div>
+      </section>
     </header>
-
-    <main></main>
-
-    <footer></footer>
   </body>
   <script>
-    // Obtenemos referencias a los elementos del DOM
     var mobileMenu = document.getElementById("mobile-menu");
     var closeButton = document.getElementById("close-button");
+    var openButton = document.getElementById("burger-menu");
+    var documento = document.documentElement;
 
-    // Agregamos un manejador de eventos al botón
-    closeButton.addEventListener("click", function () {
-      // Obtenemos el valor actual del atributo aria-modal
-      var currentAriaModal = mobileMenu.getAttribute("aria-modal");
-
-      // Cambiamos el valor del atributo aria-modal
-      if (currentAriaModal === "true") {
-        mobileMenu.setAttribute("aria-modal", "false");
-      } else {
-        mobileMenu.setAttribute("aria-modal", "true");
+    documento.addEventListener("click", function (event) {
+      if (!mobileMenu.contains(event.target) && !openButton.contains(event.target)) {
+        console.log("Entra en click fuera del mobile menu");
+        if (mobileMenu.style.display == "block") {
+          mobileMenu.style.display = "none"
+        }
       }
+    });
+
+    closeButton.addEventListener("click", function () {
+      mobileMenu.style.display = "none";
+      console.log("Entra en cerrar menu");
+    });
+
+    openButton.addEventListener("click", function () {
+      mobileMenu.style.display = "block";
+      console.log("Entra en abrir menu");
     });
   </script>
 </html>
